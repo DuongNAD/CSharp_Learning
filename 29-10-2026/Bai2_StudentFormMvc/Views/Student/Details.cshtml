@@ -1,0 +1,45 @@
+@model Bai2_StudentFormMvc.Models.Student
+
+@{
+    ViewData["Title"] = "Thông Tin Sinh Viên Vừa Nhập";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success shadow-sm">
+                <strong>Thành công!</strong> @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0 text-success fw-bold">Thông Tin Sinh Viên Hiển Thị Trên Web</h4>
+                <span class="badge bg-success">Mã SV: #@Model.Id</span>
+            </div>
+            <div class="card-body p-4">
+                <dl class="row mb-0 fs-6">
+                    <dt class="col-sm-4 text-muted">Mã sinh viên (Id):</dt>
+                    <dd class="col-sm-8 fw-bold">@Model.Id</dd>
+
+                    <dt class="col-sm-4 text-muted">Họ và Tên (Name):</dt>
+                    <dd class="col-sm-8 fw-semibold text-primary">@Model.Name</dd>
+
+                    <dt class="col-sm-4 text-muted">Tuổi (Age):</dt>
+                    <dd class="col-sm-8">@Model.Age tuổi</dd>
+
+                    <dt class="col-sm-4 text-muted">Lớp học (Class):</dt>
+                    <dd class="col-sm-8"><span class="badge bg-info text-dark">@Model.ClassName</span></dd>
+
+                    <dt class="col-sm-4 text-muted">Email:</dt>
+                    <dd class="col-sm-8"><a href="mailto:@Model.Email">@Model.Email</a></dd>
+                </dl>
+            </div>
+            <div class="card-footer bg-white py-3 d-flex justify-content-between">
+                <a asp-action="Create" class="btn btn-outline-success">+ Nhập Thêm Sinh Viên</a>
+                <a asp-action="Index" class="btn btn-success">Xem Toàn Bộ Danh Sách</a>
+            </div>
+        </div>
+    </div>
+</div>

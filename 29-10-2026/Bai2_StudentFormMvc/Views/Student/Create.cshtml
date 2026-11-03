@@ -1,0 +1,57 @@
+@model Bai2_StudentFormMvc.Models.Student
+
+@{
+    ViewData["Title"] = "Form Nhập Liệu Sinh Viên";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3">
+                <h4 class="mb-0 text-success fw-bold">Form Nhập Liệu Thông Tin Sinh Viên</h4>
+                <small class="text-muted">Nhập thông tin sinh viên và nhấn Lưu để hiển thị lên trang web qua MVC</small>
+            </div>
+            <div class="card-body p-4">
+                <form asp-controller="Student" asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Id" class="form-label fw-semibold"></label>
+                        <input asp-for="Id" class="form-control" />
+                        <span asp-validation-for="Id" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label fw-semibold"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Nhập họ và tên sinh viên..." />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Age" class="form-label fw-semibold"></label>
+                            <input asp-for="Age" type="number" class="form-control" placeholder="Ví dụ: 20" />
+                            <span asp-validation-for="Age" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="ClassName" class="form-label fw-semibold"></label>
+                            <input asp-for="ClassName" class="form-control" placeholder="Ví dụ: C2411L" />
+                            <span asp-validation-for="ClassName" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Email" class="form-label fw-semibold"></label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="ten.sinhvien@aptech.edu.vn" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary">Xem Danh Sách</a>
+                        <button type="submit" class="btn btn-success px-4">Gửi &amp; Hiển Thị Thông Tin</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

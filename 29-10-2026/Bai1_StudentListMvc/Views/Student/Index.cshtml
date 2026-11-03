@@ -1,0 +1,52 @@
+@model IEnumerable<Bai1_StudentListMvc.Models.Student>
+
+@{
+    ViewData["Title"] = "Danh Sách Sinh Viên";
+}
+
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h4 class="mb-0 text-primary fw-bold">Danh Sách Sinh Viên</h4>
+        <span class="badge bg-primary rounded-pill">Tổng số: @Model.Count() sinh viên</span>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="ps-4">Id</th>
+                        <th>Họ và Tên (Name)</th>
+                        <th>Tuổi (Age)</th>
+                        <th class="pe-4">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td class="ps-4 fw-bold">#@student.Id</td>
+                            <td>@student.Name</td>
+                            <td><span class="badge bg-info text-dark">@student.Age tuổi</span></td>
+                            <td class="pe-4"><a href="mailto:@student.Email" class="text-decoration-none">@student.Email</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-header bg-white py-3">
+        <h5 class="mb-0 fw-bold text-secondary">Trình Bày Luồng Chạy MVC Hiển Thị Danh Sách Sinh Viên</h5>
+    </div>
+    <div class="card-body">
+        <ol class="mb-0 lh-lg">
+            <li><strong>Bước 1 (HTTP Request):</strong> Trình duyệt người dùng gửi yêu cầu <code>GET /Student/Index</code> (hoặc <code>GET /</code>) đến Web Server (Kestrel).</li>
+            <li><strong>Bước 2 (Routing Middleware):</strong> Hệ thống định tuyến trong <code>Program.cs</code> đối chiếu URL với mẫu <code>{controller=Student}/{action=Index}/{id?}</code> và điều hướng yêu cầu vào <code>StudentController</code>, phương thức <code>Index()</code>.</li>
+            <li><strong>Bước 3 (Controller &amp; Model):</strong> <code>StudentController.Index()</code> khởi tạo/lấy danh sách đối tượng <code>List&lt;Student&gt;</code> (gồm các thuộc tính <code>Id</code>, <code>Name</code>, <code>Age</code>, <code>Email</code>) từ <code>Models/Student.cs</code>.</li>
+            <li><strong>Bước 4 (Truyền dữ liệu sang View):</strong> Controller gọi lệnh <code>return View(_students);</code> để truyền danh sách <code>List&lt;Student&gt;</code> sang View Engine.</li>
+            <li><strong>Bước 5 (Razor View Render HTML):</strong> Razor View Engine tìm file <code>Views/Student/Index.cshtml</code>, nhận dữ liệu qua <code>@@model IEnumerable&lt;Student&gt;</code>, dùng vòng lặp <code>@@foreach</code> kết xuất thành bảng HTML hoàn chỉnh và trả về HTTP Response (200 OK) cho trình duyệt.</li>
+        </ol>
+    </div>
+</div>
