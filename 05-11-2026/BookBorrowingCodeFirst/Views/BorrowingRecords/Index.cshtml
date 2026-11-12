@@ -1,0 +1,44 @@
+@model IEnumerable<BorrowingRecord>
+@{
+    ViewData["Title"] = "Phiếu mượn sách";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Phiếu mượn sách</h2>
+    <a class="btn btn-primary" asp-action="Create">+ Mượn sách</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle bg-white">
+        <thead class="table-dark">
+            <tr>
+                <th>Sách</th>
+                <th>@Html.DisplayNameFor(m => m.BorrowerName)</th>
+                <th>@Html.DisplayNameFor(m => m.BorrowerEmail)</th>
+                <th>@Html.DisplayNameFor(m => m.BorrowDate)</th>
+                <th>@Html.DisplayNameFor(m => m.ReturnDate)</th>
+                <th style="width: 170px;">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Book?.Title</td>
+                <td>@Html.DisplayFor(m => item.BorrowerName)</td>
+                <td>@Html.DisplayFor(m => item.BorrowerEmail)</td>
+                <td>@item.BorrowDate.ToString("dd/MM/yyyy")</td>
+                <td>@(item.ReturnDate?.ToString("dd/MM/yyyy") ?? "Chưa trả")</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="6" class="text-center text-muted py-4">Chưa có phiếu mượn nào.</td></tr>
+        }
+        </tbody>
+    </table>
+</div>

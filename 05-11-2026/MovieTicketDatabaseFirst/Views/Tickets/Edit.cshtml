@@ -1,0 +1,21 @@
+@model Ticket
+@{
+    ViewData["Title"] = "Sửa vé";
+}
+
+<h2 class="mb-3">Sửa vé</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+            <input type="hidden" asp-for="Id" />
+            <partial name="_TicketFields" model="Model" />
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+            <a class="btn btn-secondary" asp-action="Index">Quay lại</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

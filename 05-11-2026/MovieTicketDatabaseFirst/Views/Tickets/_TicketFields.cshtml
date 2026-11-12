@@ -1,0 +1,29 @@
+@model Ticket
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="mb-3">
+    <label asp-for="MovieId" class="form-label"></label>
+    <select asp-for="MovieId" asp-items="ViewBag.Movies" class="form-select"></select>
+    <span asp-validation-for="MovieId" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="ShowDate" class="form-label"></label>
+    <input asp-for="ShowDate" class="form-control" />
+    <span asp-validation-for="ShowDate" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="CustomerName" class="form-label"></label>
+    <input asp-for="CustomerName" class="form-control" />
+    <span asp-validation-for="CustomerName" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="CustomerPhone" class="form-label"></label>
+    <input asp-for="CustomerPhone" class="form-control" />
+    <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="SeatQuantity" class="form-label"></label>
+    <input asp-for="SeatQuantity" class="form-control" />
+    <span asp-validation-for="SeatQuantity" class="text-danger"></span>
+</div>

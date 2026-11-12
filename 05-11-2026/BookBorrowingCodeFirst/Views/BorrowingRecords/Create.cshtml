@@ -1,0 +1,47 @@
+@model BorrowingRecord
+@{
+    ViewData["Title"] = "Mượn sách";
+}
+
+<h2 class="mb-3">Mượn sách</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="BookId" class="form-label"></label>
+                <select asp-for="BookId" asp-items="ViewBag.Books" class="form-select"></select>
+                <span asp-validation-for="BookId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BorrowerName" class="form-label"></label>
+                <input asp-for="BorrowerName" class="form-control" />
+                <span asp-validation-for="BorrowerName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BorrowerEmail" class="form-label"></label>
+                <input asp-for="BorrowerEmail" class="form-control" />
+                <span asp-validation-for="BorrowerEmail" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BorrowDate" class="form-label"></label>
+                <input asp-for="BorrowDate" class="form-control" />
+                <span asp-validation-for="BorrowDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ReturnDate" class="form-label"></label>
+                <input asp-for="ReturnDate" class="form-control" />
+                <span asp-validation-for="ReturnDate" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a class="btn btn-secondary" asp-action="Index">Quay lại</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

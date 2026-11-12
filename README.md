@@ -13,6 +13,10 @@ Toàn bộ các bài tập được chia theo thư mục ngày `DD-MM-YYYY` đ�
 | 1 | **29/10/2026** | **MVC - Homework - Student** | `29-10-2026/Bai1_StudentListMvc` | Khởi tạo danh sách sinh viên (`Id`, `Name`, `Age`, `Email`), hiển thị lên View và trình bày chi tiết luồng chạy MVC | Hoàn thành |
 | 2 | **29/10/2026** | **MVC - Homework - Student Form** | `29-10-2026/Bai2_StudentFormMvc` | Tạo Form nhập liệu thông tin sinh viên (`GET`/`POST`), Model Binding, Validation và hiển thị danh sách/chi tiết sinh viên vừa nhập | Hoàn thành |
 | 3 | **31/10/2026** | **MVC - Source Code Mẫu** | `31-10-2026/MvcHttpDemo` | Phân tích luồng chạy MVC mẫu, quản lý CRUD đối tượng `Student` và **bổ sung hoàn thiện chức năng Sửa sinh viên (`Edit`)** | Hoàn thành |
+| 4 | **03/11/2026** | **MVC - Homework - Kết nối đến database** | `03-11-2026/StudentManagementAdo` | CRUD sinh viên bằng ADO.NET (`SqlConnection`, `SqlCommand`, `SqlDataReader`), mô hình Model/Controller/Repository/View | Chưa chạy thử |
+| 5 | **05/11/2026** | **MVC - Database First - 1** | `05-11-2026/MovieTicketDatabaseFirst` | Quản lý phim và vé bằng EF Core Database First | Chưa chạy thử |
+| 6 | **05/11/2026** | **MVC - Code First - 1** | `05-11-2026/BookBorrowingCodeFirst` | Quản lý sách và phiếu mượn bằng EF Core Code First | Chưa chạy thử |
+| 7 | **10/11/2026** | **MVC - Lệnh Entity Framework** | `10-11-2026/README.md` | Giải thích ý nghĩa các lệnh `dotnet add package`, `dotnet ef`, `scaffold` | Hoàn thành |
 
 ---
 

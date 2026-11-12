@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Thư viện</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" asp-controller="Books" asp-action="Index">Thư Viện (Code First)</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-white" asp-controller="Books" asp-action="Index">Sách</a>
+                <a class="nav-link text-white" asp-controller="BorrowingRecords" asp-action="Index">Phiếu mượn</a>
+                <a class="nav-link text-warning fw-semibold" asp-controller="BorrowingRecords" asp-action="Create">+ Mượn sách</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pb-5">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top py-3 text-center text-muted bg-white">
+        <small>&copy; 2026 - Aptech AAHN_C2411L - MVC Code First 1</small>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

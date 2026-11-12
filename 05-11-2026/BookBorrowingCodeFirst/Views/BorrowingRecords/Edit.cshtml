@@ -1,0 +1,48 @@
+@model BorrowingRecord
+@{
+    ViewData["Title"] = "Sửa phiếu mượn";
+}
+
+<h2 class="mb-3">Sửa phiếu mượn</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="BorrowDate" />
+            <input type="hidden" asp-for="BorrowerEmail" />
+
+            <div class="mb-3">
+                <label asp-for="BookId" class="form-label"></label>
+                <select asp-for="BookId" asp-items="ViewBag.Books" class="form-select"></select>
+                <span asp-validation-for="BookId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BorrowerName" class="form-label"></label>
+                <input asp-for="BorrowerName" class="form-control" />
+                <span asp-validation-for="BorrowerName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">@Html.DisplayNameFor(m => m.BorrowerEmail)</label>
+                <input class="form-control" value="@Model.BorrowerEmail" disabled />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">@Html.DisplayNameFor(m => m.BorrowDate)</label>
+                <input class="form-control" value="@Model.BorrowDate.ToString("dd/MM/yyyy")" disabled />
+            </div>
+            <div class="mb-3">
+                <label asp-for="ReturnDate" class="form-label"></label>
+                <input asp-for="ReturnDate" class="form-control" />
+                <span asp-validation-for="ReturnDate" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+            <a class="btn btn-secondary" asp-action="Index">Quay lại</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
